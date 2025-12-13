@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Result View</title>
+  <style>
+    :root {
+      --accent: #22c55e;
+      --muted: #6b7280;
+      --bg: #020617;
+      --card: #020819;
+      --stroke: rgba(148, 163, 184, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 24px 12px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1080px;
+      margin: auto;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 60%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.7),
+        0 18px 60px rgba(15, 23, 42, 0.9);
+      padding: 18px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    /* REMOVED the old h1 style since we removed the element */
+    
+    header .header-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* This is the NEON GREEN PILL */
+    .item-pill {
+      display: inline-block;
+      padding: 6px 16px; /* slightly wider for better look */
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.10);
+      color: #a7f3d0;
+      border: 1px solid rgba(34, 197, 94, 0.50); /* slightly brighter border */
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.2); /* faint neon glow */
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 55%),
+                  rgba(15, 23, 42, 0.9);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.96));
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      padding: 14px 14px 16px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.1), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #020617, #020617);
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 10px;
+      min-height: 420px;
+    }
+
+    .preview img {
+      max-width: 100%;
+      max-height: 560px;
+      border-radius: 10px;
+      display: block;
+      background: #020617;
+    }
+
+    .info h2 {
+      margin: 0 0 6px;
+      font-size: 1.25rem; /* Larger for sidebar title */
+      color: #e5e7eb;
+      font-weight: 700;
+    }
+
+    .info-sub {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .body {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      line-height: 1.5;
+    }
+
+    .body p {
+      margin: 0 0 4px;
+    }
+
+    .body ul {
+      padding-left: 18px;
+      margin: 4px 0;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn span {
+      font-size: 1.05rem;
+    }
+
+    .btn-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-weight: 500;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-primary span {
+      filter: drop-shadow(0 0 8px rgba(21, 128, 61, 0.9));
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .preview {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px 8px;
+      }
+      .shell {
+        border-radius: 18px;
+        padding: 14px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ============ PRINT VIEW ============ */
+    @media print {
+      * {
+        box-shadow: none !important;
+        background: transparent !important;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+        color: #000;
+      }
+      header, .info, #bodyHtml, .chip-row, .actions {
+        display: none !important;
+      }
+      .shell {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+      .layout {
+        margin: 0;
+        display: block;
+      }
+      .card {
+        border: none;
+        padding: 0;
+        box-shadow: none;
+      }
+      .preview {
+        border: none;
+        padding: 0;
+        min-height: auto;
+      }
+      .preview img {
+        max-width: 100%;
+        max-height: 100vh;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <!-- HEADER LEFT: Removed the H1, kept ONLY the pill -->
+      <div class="header-meta">
+         <!-- This pill will show the MAIN DEGREE (e.g. BCA) -->
+         <div id="itemLabel" class="item-pill">Loading...</div>
+      </div>
+
+      <!-- HEADER RIGHT: Badge -->
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>Shubham Das • Portfolio</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- IMAGE SECTION -->
+      <section class="card">
+        <div class="card-inner">
+          <div class="preview">
+            <img id="docImg" alt="Exams Are Going On" />
+          </div>
+        </div>
+      </section>
+
+      <!-- INFO SECTION -->
+      <aside class="card">
+        <div class="card-inner">
+          <div class="info">
+            <!-- This Heading will show the SPECIFIC RESULT (e.g. 1st Sem Result) -->
+            <h2 id="heading"></h2>
+            
+            <p id="subline" class="info-sub"></p>
+          </div>
+          
+          <div id="bodyHtml" class="body"></div>
+
+          <div class="chip-row">
+            <div class="chip" id="durationChip"></div>
+          </div>
+
+          <div class="actions">
+            <button id="printBtn" class="btn btn-primary" type="button">
+              <span>🖨</span> Print
+            </button>
+            <a id="openImage" class="btn" target="_blank" rel="noopener">
+              <span>↗</span> Open image
+            </a>
+            <a id="downloadLink" class="btn" download>
+              <span>⬇</span> Download
+            </a>
+            <a href="index.html#qualification" class="btn" id="backToPortfolio">
+              <span>←</span> Back to portfolio
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    // Get parameters
+    // 'title' = The main Degree Name (passed from main.js) -> Goes to Pill
+    // 'docName' = The specific document name (passed from main.js) -> Goes to Sidebar Heading
+    const title    = params.get("title")    || "Document View"; 
+    const docName  = params.get("docName")  || "Result / Certificate";
+    const subtitle = params.get("subtitle") || "";
+    const duration = params.get("duration") || "";
+    const img      = params.get("img")      || "";
+    const body     = params.get("body")     || "";
+
+    // 1. Set the Green Pill (Main Degree Name)
+    const itemLabelEl = document.getElementById("itemLabel");
+    if (itemLabelEl) {
+      itemLabelEl.textContent = title; 
+    }
+
+    // 2. Set the Sidebar Heading (Specific Result Name)
+    document.getElementById("heading").textContent = docName;
+
+    // 3. Set Secondary Info
+    document.getElementById("subline").textContent = subtitle;
+
+    // Browser Tab Title
+    document.title = docName + " — " + title;
+
+    // Duration Chip
+    const chip = document.getElementById("durationChip");
+    chip.textContent = duration || "Academic record";
+
+    // // Body Description
+    // const bodyEl = document.getElementById("bodyHtml");
+    // if (body) {
+    //   try {
+    //     bodyEl.innerHTML = body;
+    //   } catch (e) {
+    //     bodyEl.textContent = body;
+    //   }
+    // } else {
+    //   bodyEl.innerHTML = "<p>No additional description provided.</p>";
+    // }
+
+    // Image Setup
+    const imgEl = document.getElementById("docImg");
+    if (img) {
+      imgEl.src = img;
+    } else {
+      imgEl.alt = "No image provided";
+    }
+
+    // Buttons
+    const openImage   = document.getElementById("openImage");
+    const download    = document.getElementById("downloadLink");
+    if (img) {
+      openImage.href = img;
+      download.href  = img;
+      download.download = img.split("/").pop() || "document";
+    } else {
+      openImage.removeAttribute("href");
+      download.removeAttribute("href");
+    }
+
+    // Print Logic
+    document.getElementById("printBtn").addEventListener("click", () => {
+      window.print();
+    });
+
+    // Back Button Logic
+    (function () {
+      const backBtn = document.getElementById("backToPortfolio");
+      if (!backBtn) return;
+      backBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        try {
+          if (window.opener && !window.opener.closed) {
+            window.opener.location.hash = "qualification"; 
+            window.opener.focus(); 
+            setTimeout(() => { window.close(); }, 80);
+            return;
+          }
+        } catch (ex) {}
+        window.location.href = "index.html#qualification";
+      });
+    })();
+  </script>
+</body>
+</html>
