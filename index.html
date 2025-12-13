@@ -2,859 +2,421 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="./packages/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./packages/css/styles.css">
-  
-    <title>Shubham Das</title>
-
-    <link rel="icon" href="./packages/images/logo.png" type="image/png" sizes="32x32">
-    <link rel="icon" href="./packages/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="./packages/images/logopng.png" type="image/x-icon">
-    
-
-  </head>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham Das - Portfolio</title>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // Your EmailJS Public Key
+      emailjs.init("kBbE_NuFi3OaB4RfE");
+    })();
+  </script>
+</head>
 
 <body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Shubham Das</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link">
-                            <i class="uil uil-estate nav__icon"></i>Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="uil uil-user nav__icon"></i>About
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"></i>Skills
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#services" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"></i>Services
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class="uil uil-message nav__icon"></i>Contact
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav__close" id="nav-close"></i>
-            </div>
-            <div class="nav__btns">
-                <!-- Theme change button -->
-
-                <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!--==================== MAIN ====================-->
-    <main class="main">
-        <!--==================== HOME ====================-->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__content grid">
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/shubham-das-08dz/" target="_blank"
-                            class="home__social-icon">
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
-                        <a href="https://x.com/ShubhamDz" target="_blank" class="home__social-icon">
-                            <i class="uil uil-twitter-alt"></i>
-                        </a>
-                        <a href="https://github.com/Shubham0008dZ" target="_blank" class="home__social-icon">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-                    </div>
-
-                    <div class="home__img">
-                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <mask id="mask0" mask-type="alpha">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                                <image class="home__blob-img" x="" xlink:href="packages/images/shubham1jpg.jpeg" />
-                            </g>
-                        </svg>
-                    </div>
-
-                    <div class="home__data">
-                        <h1 class="home__title">Hi, I'am Shubham</h1>
-                        <h3 class="home__subtitle">Technical Support Specialist</h3>
-                        <p class="home__description">Empowering Solutions, Ensuring Seamless Experience</p>
-                        <a href="#contact" class="button button--flex home__button">
-                            Contact Me<i class="uil uil-message button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="home__scroll">
-                    <a href="#about" class="home__scroll-button button--flex">
-                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-                        <span class="home__scroll-name">Scroll Down</span>
-                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== ABOUT ====================-->
-        <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
-            <span class="section__subtitle">My Introduction</span>
-
-            <div class="about__container container grid">
-                <img src="packages/images/shubham2.jpeg" alt="" class="about__img">
-                <div class="about__data">
-                    <p class="about__description">
-                        Driven MCA student and Consultant in the Technical Support department with strong academic performance and hands-on experience in EdTech ERP systems.
-                        Over a year of expertise in diagnosing and resolving technical issues, providing user training, and ensuring smooth system operations.
-                        Proficient in SQL, database management, HTML, CSS, and Microsoft Office. Recognized for clear communication, attention to detail, and a collaborative, 
-                        solution-oriented approach. Committed to continuous learning and delivering efficient, high-quality support in every interaction.
-                    <div class="about__info">
-                        <div>
-                            <span class="about__info-title">02+</span>
-                            <span class="about__info-name">Years <br> experience</span>
-                        </div>
-                        <div>
-                            <span class="about__info-title">03+</span>
-                            <span class="about__info-name">Completed <br> certifications</span>
-                        </div>
-                        <div>
-                            <span class="about__info-title">02+</span>
-                            <span class="about__info-name">companies<br>worked</span>
-                        </div>
-                    </div>
-
-                    <div class="about__buttons">
-                        <!-- Button that triggers popup -->
-                        <button onclick="showPopup()" class="button button--flex" type="button">
-                            Download CV <i class="uil uil-download-alt button__icon"></i>
-                        </button>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Technical Skills</h2>
-            <span class="section__subtitle">My Technical Level</span>
-
-            <div class="skills__container container grid">
-                <div>
-                    <!--==================== SKILL-1 ====================-->
-                    <div class="skills__content skills__open">
-                        <div class="skills__header">
-                            <i class="uil uil-analytics skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Database Management</h1>
-                                <span class="skills__subtitle">More than 1 years</span>
-                            </div>
-
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">MySQL</h3>
-                                    <span class="skills__number">60%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__python"></span>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">SQL</h3>
-                                    <span class="skills__number">50%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__sql"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Google Suite</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__google"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--==================== SKILLS 2 ====================-->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-money-bill skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Data Visualization</h1>
-                                <span class="skills__subtitle">More than 1 years</span>
-                            </div>
-
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">PowerBI</h3>
-                                    <span class="skills__number">60%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__bank"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Google suite</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__google"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">MS Office</h3>
-                                    <span class="skills__number">90%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__office"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <!--==================== SKILLS 3 ====================-->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-brackets-curly skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Technical Support</h1>
-                                <span class="skills__subtitle">More than 1 years</span>
-                            </div>
-
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">HTML</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__html"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">CSS</h3>
-                                    <span class="skills__number">60%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__css"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Help Desk Tools</h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__css"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Software Support</h3>
-                                    <span class="skills__number">90%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__css"></span>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Operating Systems (Windows, macOS, or Linux systems.) </h3>
-                                    <span class="skills__number">70%</span>
-                                </div>
-                                <div class="skills__bar">
-                                    <span class="skills__percentage skills__css"></span>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== QUALIFICATION ====================-->
-        <section class="qualification__section">
-            <h2 class="section__title">Qualification</h2>
-            <span class="section__subtitle">My personal journey</span>
-
-            <div class="qualification__container container">
-                <div class="qualification__tabs">
-                    <div class="qualification__button button--flex qualification__active" data-target='#education'>
-                        <i class="uil uil-graduation-cap qualification__icon"></i>
-                        Education
-                    </div>
-
-                    <div class="qualification__button button--flex" data-target="#work">
-                        <i class="uil uil-briefcase-alt qualification__icon"></i>
-                        Work
-                    </div>
-                </div>
-
-                <div class="qualification__sections">
-                    <!--==================== QUALIFICATION CONTENT 1 ====================-->
-                    <div class="qualification__content qualification__active" data-content id="education">
-                        <!--==================== QUALIFICATION 1 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Bachelor of Computer Applications (BCA)</h3>
-                                <span class="qualification__subtitle">ARAVALI COLLEGE OF ENGINEERING AND
-                                    MANAGEMENT</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2020 - 2023
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-
-
-
-                        <!--==================== QUALIFICATION 2 ====================-->
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">Certificate in The Internet of Things (IoT)</h3>
-                                <span class="qualification__subtitle">Swayam - NPTEL</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    Completed: April 2023
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-
-                        <!--==================== QUALIFICATION 4 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Master of Computer Applications (MCA in Cloud
-                                    Computing)</h3>
-                                <span class="qualification__subtitle">JB Knowledge Park</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2025-2027
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!--==================== QUALIFICATION CONTENT 2 ====================-->
-                    <div class="qualification__content" data-content id="work">
-                        <!--==================== QUALIFICATION 1 ====================-->
-                        <div class="qualification__data">
-                             <div>
-                                <h3 class="qualification__title">Data Analyst</h3>
-                                <span class="qualification__subtitle">Impex Hitech Rubber Pvt Ltd </span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    Mar 2023 - Oct 2023
-
-                                </div>
-                            </div> 
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <!--==================== QUALIFICATION 2 ====================-->
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">Process Associate</h3>
-                                <span class="qualification__subtitle">DATA SOLUTIONS INDIA</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    Dec 2023 – May 2024
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--==================== QUALIFICATION 3 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">ERP Coordinator</h3>
-                                <span class="qualification__subtitle">Edunext Technologies Pvt. Ltd.</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    Jul 2024 – Sept 2025
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!--==================== SERVICES ====================-->
-        <section class="services section" id="services">
-            <h2 class="section__title">Services</h2>
-            <span class="section__subtitle">What I offer</span>
-
-            <div class="services__container container grid">
-                <!--==================== SERVICES 1 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-analytics skills__icon"></i>
-                        <h3 class="services__title">Data Analyst<br></h3>
-                    </div>
-                    <span class="button button--flex button--small button--link services__button">
-                        View more
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Data Analyst <br></h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Analyze current and past Quotational data.
-                                    </p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Look at recent Quotation performance and identify trends</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Prepare reports on the above information and communicate the insights of these
-                                        reports to the
-                                        broader business.</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Consult with the management team to develop long-term commercial plans. </p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Suggest budgets and improvements based on the above information. </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--==================== SERVICES 2 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-money-bill skills__icon"></i>
-                        <h3 class="services__title">Process Associate<br> </h3>
-                    </div>
-                    <span class="button button--flex button--small button--link services__button">
-                        View more
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Process Associate, Payment Posting Department<br></h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Managed and processed payments efficiently in the Payment Posting department.</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Worked extensively with denial codes and supported the aging team.</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Gained comprehensive knowledge of ICD, CPT, HCPCS codes</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Basic knowledge of scrubbing claims and interpreting Explanation of Benefits
-                                        (EOB).</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Know how to fetch EOBs from various clearinghouses like Trizetto, Waystar, and
-                                        websites like
-                                        Eyemed, Spectera, VSP, Zelis.</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Software Proficiency: Crystal (best expertise), Revolution, and Compulink.
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--==================== SERVICES 3 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-arrow services__icon"></i>
-                        <h3 class="services__title">Technical Support Specialist<br></h3>
-                    </div>
-                    <span class="button button--flex button--small button--link services__button">
-                        View more
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Technical Support Specialist</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Provided technical support for K-12 ERP systems, ensuring smooth functioning of
-                                        core modules.
-                                    </p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Supported key modules like Student Information System (SIS), Fee Management,
-                                        Attendance Management, Academic Management, and Communication & Notifications.
-                                    </p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Resolved technical queries and issues by managing ticketing systems, ensuring
-                                        timely resolution and client satisfaction.</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Conducted training sessions for school staff to enhance their understanding of
-                                        ERP functionalities.</p>
-                                </li>
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>Collaborated with internal teams to escalate and address complex technical
-                                        queries.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
-
-
-        <!-- add arrows-->
-        <div class="swiper-button-next">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Shubham Das</a>
+      <nav class="nav" id="nav-menu">
+        <a href="#home" class="active-link">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#qualification">Qualification</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-btns">
+        <button class="theme-toggle-btn" id="theme-button" aria-label="Toggle theme">
+          <i class="uil uil-sun"></i>
+        </button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <i class="uil uil-apps"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Home -->
+    <section class="section container" id="home">
+      <div class="hero">
+        <div class="hero__content">
+          <h1 class="section__title">Hi, I'm Shubham</h1>
+
+          <!-- UPDATED FOR STATIC PREFIX + TYPING EFFECT -->
+          <h3 class="hero__subtitle">
+            <span class="role-prefix">Consultant&nbsp;-&nbsp;</span><span class="typing-text"></span>
+          </h3>
+
+
+          <p class="hero__text">
+            Responsible for providing end-to-end technical support for enterprise applications, handling L1/L2 issues,
+            ticket management, and timely resolution as per SLAs. Assists with system configuration, troubleshooting,
+            user support, and
+            contributes to service improvement through effective coordination and communication.
+          </p>
+
+          <ul class="hero__contact">
+            <li><i class="uil uil-envelope"></i> shubham347779@gmail.com</li>
+            <li><i class="uil uil-map-marker"></i> Faridabad, India</li>
+          </ul>
+
+          <div class="hero__actions">
+            <button id="heroContactBtn" class="btn btn--primary">
+              Contact Me <i class="uil uil-message"></i>
+            </button>
+            <button id="heroCvBtn" class="btn btn--ghost">
+              View CV <i class="uil uil-file-alt"></i>
+            </button>
+          </div>
+
+          <div class="hero__socials">
+            <a href="https://linkedin.com" target="_blank"><i class="uil uil-linkedin-alt"></i></a>
+            <a href="https://github.com" target="_blank"><i class="uil uil-github-alt"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="uil uil-instagram"></i></a>
+          </div>
         </div>
 
-        <div class="swiper-button-prev">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-        </div>
-
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-
-
-        </div>
-
-        </section>
-
-        <!--==================== PROJECT IN MIND ====================-->
-
-
-
-        <!--Add pagination-->
-        <div class="swiper-pagination swiper-pagination-testimonial"></div>
-        </div>
-        </section>
-
-        <!--==================== CONTACT ME ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact me</h2>
-            <span class="section__subtitle">Get in touch</span>
-
-            <div class="contact__container container grid">
-                <div>
-                    <div class="contact__information">
-                        <i class="uil uil-phone-alt contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Call me</h3>
-                            <span class="contatc__subtitle">(+91) 7982326285</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="uil uil-envelope contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">E-mail</h3>
-                            <span class="contatc__subtitle">shubhedu08@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="uil uil-map-marker contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Location</h3>
-                            <span class="contatc__subtitle">Gr. Faridabad, India</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <!-- Contact Form Start -->
-                <form id="contact-form" class="contact__form grid">
-                    <input type="hidden" id="time-field" name="time" />
-
-                    <div class="contact__inputs grid">
-                        <div class="contact__content">
-                            <label for="name" class="contact__label">Name</label>
-                            <input type="text" id="name" name="name" class="contact__input" placeholder="Your Name"
-                                required />
-                        </div>
-                        <div class="contact__content">
-                            <label for="email" class="contact__label">E-mail</label>
-                            <input type="email" id="email" name="email" class="contact__input" placeholder="Your Email" required />
-                            
-                        </div>
-                    </div>
-
-                  
-
-                    <div class="contact__content">
-                        <label for="message" class="contact__label">Description</label>
-                        <textarea id="message" name="message" rows="7" class="contact__input" placeholder="Your Message"
-                            required></textarea>
-                    </div>
-
-                    <div>
-                        <button type="submit" class="button button--flex">
-                            Send message
-                            <i class="uil uil-message button__icon"></i>
-                        </button>
-                    </div>
-                </form>
-
-
-                <!-- Contact Form End -->
-
-                <!-- End of Contact Form -->
-
+        <div class="hero__aside">
+          <div class="hero__card" id="heroCard">
+            <div class="hero__avatar">
+              <img src="pasport size photo.jpg" alt="Profile">
             </div>
-        </section>
-
-
-    </main>
-
-    <!--==================== FOOTER ====================-->
-    <footer class="footer">
-
-        <div class="footer__bg">
-            <div class="footer__container container grid">
-                <div>
-                    <h1 class="footer__title">Shubham Das</h1>
-                    <span class="footer__subtitle">Technical Support Specialist</span>
-                </div>
-
-                <ul class="footer__links">
-                    <li>
-                        <a href="#home" class="footer__link">Home</a>
-                    </li>
-                    <li>
-                        <a href="#about" class="footer__link">About</a>
-                    </li>
-                    <li>
-                        <a href="#skills" class="footer__link">Skills</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="footer__link">Contact</a>
-                    </li>
-                </ul>
-
-                <div class="footer__socials">
-                    <a href="" target="_blank" class="footer__social">
-                        <i class="uil uil-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/shubham_46dz?igsh=aWpkeHBma2sxMGUz" target="_blank"
-                        class="footer__social">
-                        <i class="uil uil-instagram"></i>
-                    </a>
-                    <a href="https://x.com/ShubhamDz" target="_blank" class="footer__social">
-                        <i class="uil uil-twitter-alt"></i>
-                    </a>
-                </div>
-            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
+    <!-- About -->
+    <section class="section container" id="about">
+      <div class="section__head">
+        <h2 class="section__title">About Me</h2>
+        <span class="section__subtitle">My introduction</span>
+      </div>
+      <div class="card about__content">
+        <p class="about__text">
+          Driven MCA student and Consultant in the Technical Support department with strong academic performance and
+          hands-on experience in EdTech ERP systems. Over a year of expertise in diagnosing and resolving technical
+          issues, providing user training, and ensuring smooth system operations. Proficient in SQL, database
+          management, HTML, CSS, and Microsoft Office. Recognized for clear communication, attention to detail, and a
+          collaborative, solution-oriented approach. Committed to continuous learning and delivering efficient,
+          high-quality support in every interaction.
+        </p>
+        <div class="about__stats">
+          <div class="stat">
+            <div class="stat__num">02+</div>
+            <div class="stat__label">Years<br>Learning</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">03+</div>
+            <div class="stat__label">Completed <br>certifications</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">03+</div>
+            <div class="stat__label">Companies<br>Worked</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Skills -->
+    <section class="section container" id="skills">
+      <div class="section__head">
+        <h2 class="section__title">Skills</h2>
+        <span class="section__subtitle">My technical level</span>
+      </div>
+      <div class="card">
+        <div class="skills">
+          <div class="skill"><span>MySQL</span>
+            <div class="skill__bar"><span style="width:65%"></span></div><span class="skill__percent">65%</span>
+          </div>
+          <div class="skill"><span>Google Suite</span>
+            <div class="skill__bar"><span style="width:90%"></span></div><span class="skill__percent">90%</span>
+          </div>
+          <div class="skill"><span>PowerBI</span>
+            <div class="skill__bar"><span style="width:60%"></span></div><span class="skill__percent">60%</span>
+          </div>
+          <div class="skill"><span>MS Office</span>
+            <div class="skill__bar"><span style="width:90%"></span></div><span class="skill__percent">90%</span>
+          </div>
+          <div class="skill"><span>Git & GitHub</span>
+            <div class="skill__bar"><span style="width:60%"></span></div><span class="skill__percent">60%</span>
+          </div>
+          <div class="skill"><span>CSS</span>
+            <div class="skill__bar"><span style="width:70%"></span></div><span class="skill__percent">70%</span>
+          </div>
+          <div class="skill"><span>Help Desk Tools</span>
+            <div class="skill__bar"><span style="width:80%"></span></div><span class="skill__percent">80%</span>
+          </div>
+          <div class="skill"><span>Software Support</span>
+            <div class="skill__bar"><span style="width:95%"></span></div><span class="skill__percent">95%</span>
+          </div>
+          <div class="skill"><span>Operating Systems <br> (Windows, macOS, <br> Linux systems.)</span>
+            <div class="skill__bar"><span style="width:75%"></span></div><span class="skill__percent">75%</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!--==================== SWIPER JS ====================-->
-    <script src="./packages/js/swiper-bundle.min.js"></script>
+    <!-- Qualification -->
+    <section class="section container" id="qualification">
+      <div class="section__head">
+        <h2 class="section__title" id="qualTitle">Qualification</h2>
+        <span class="section__subtitle" id="qualSub">My Personal Journey</span>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="education"><i class="uil uil-graduation-cap"></i> Education</button>
+        <button class="tab" data-tab="work"><i class="uil uil-briefcase-alt"></i> Work</button>
+      </div>
+      <div class="card">
+        <div class="timeline-wrapper">
+          <!-- Education Timeline -->
+          <ul class="timeline is-visible" data-kind="education">
+            <li class="timeline__item" data-title="Master of Computer Applications (MCA)"
+              data-sub="Maharshi Dayanand University (MDU), Rohtak" data-duration="2025 - 2027"
+              data-body="<p>Pursuing a postgraduate program focused on advanced computing concepts, system analysis, database technologies, and enterprise-level IT applications.</p>"
+              data-images="1st Sem Result|assets/mca_sem1.jpg; 2nd Sem Result|assets/mca_sem2.jpg; 3rd Sem Result|assets/mca_sem3.jpg; 4th Sem Result|assets/mca_sem4.jpg; Degree Certificate|assets/mca_degree.jpg">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>Master of Computer Applications (MCA)</h3>
+                <div class="timeline__meta"> • JB Knowledge Park, Faridabad <br>
+                  • Affiliated by Maharshi Dayanand University (MDU), Rohtak<br> • 2025-2027</div>
+                <button class="timeline__more">View more <i class="uil uil-arrow-right"></i></button>
+              </div>
+            </li>
+            <li class="timeline__item" data-title="Bachelor of Computer Applications (BCA)"
+              data-sub="Aravali College of Engineering & Management" data-duration="2020 - 2023"
+              data-body="<p>Completed an undergraduate program covering computer fundamentals, information systems, databases, and practical IT applications, with exposure to business and organizational computing needs.</p>"
+              data-images="1st Sem Result|assets/sem1.jpg; 2nd Sem Result|assets/sem2.jpg; 3rd Sem Result|assets/sem3.jpg; 4th Sem Result|assets/sem4.jpg; 5th Sem Result|assets/sem5.jpg; 6th Sem Result|assets/sem6.jpg; Degree Certificate|assets/degree.jpg">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>Bachelor of Computer Applications (BCA)</h3>
+                <div class="timeline__meta">• Aravali College of Engineering and Management, Faridabad <br>
+                  • Affiliated by J.C. Bose University of Science and Technology, YMCA, Faridabad <br>
+                  • 2023-2025</div><button class="timeline__more">View more <i class="uil uil-arrow-right"></i></button>
+              </div>
+            </li>
+            <li class="timeline__item" data-title="Certificate in The Internet of Things (IoT)"
+              data-sub="Swayam - NPTEL" data-duration="Completed: April 2023"
+              data-body="<p>Completed a foundational certification covering IoT architecture, sensors and actuators, embedded systems, networking protocols, and basic data handling for connected devices.</p>"
+              data-images="NPTEL Certificate|assets/np">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>Certificate in The Internet of Things (IoT)</h3>
+                <div class="timeline__meta">• Swayam - NPTEL <br> • Completed: April 2023</div><button
+                  class="timeline__more">View more <i class="uil uil-arrow-right"></i></button>
+              </div>
+            </li>
+            <!-- <li class="timeline__item" data-title="Secondary School (10th)" data-sub="CBSE Board"
+              data-duration="2017 - 2018" data-body="<p>Completed with good academic standing.</p>"
+              data-images="10th Marksheet|assets/10th-mark.jpg">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>Secondary School</h3>
+                <div class="timeline__meta">CBSE Board • 2017-2018</div><button class="timeline__more">View more <i
+                    class="uil uil-arrow-right"></i></button>
+              </div>
+            </li> -->
+          </ul>
+          <!-- Work Timeline -->
+          <ul class="timeline" data-kind="work" style="display: none;">
+            <li class="timeline__item" data-title="Process Associate, Payment Posting Department"
+              data-sub="• Data Solutions India Pvt. Ltd." data-duration="  Dec 2023 – May 2024" data-body="
+              <ul class='exp-list'>
+                <li><i class='uil uil-check-circle'></i> Managed and processed payments efficiently in the Payment Posting department.</li>
+                <li><i class='uil uil-check-circle'></i> Worked extensively with denial codes and supported the aging team.</li>
+                <li><i class='uil uil-check-circle'></i> Gained knowledge of ICD, CPT, HCPCS codes.</li>
+                <li><i class='uil uil-check-circle'></i> Basic knowledge of scrubbing claims and interpreting Explanation of Benefits (EOB).</li>
+                <li><i class='uil uil-check-circle'></i> Hands-on with clearinghouses and payer portals (TriZetto, Waystar, etc.).</li>
+                <li><i class='uil uil-check-circle'></i> Software proficiency: Crystal, Revolution, Compulink.</li>
+              </ul>
+            ">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>Process Associate, Payment Posting Department</h3>
+                <div class="timeline__meta">•Data Solutions India Pvt. Ltd.<br>•Dec 2023 – May 2024</div>
+                <button class="timeline__more">
+                  View more <i class="uil uil-arrow-right"></i>
+                </button>
+              </div>
+            </li>
 
-    <!--==================== MAIN JS ====================-->
-    <script src="./packages/js/main.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("kBbE_NuFi3OaB4RfE");
-        })();
-    </script>
+            <li class="timeline__item" data-title="ERP Coordinator" data-sub="• Edunext Technologies Pvt. Ltd."
+              data-duration="Jul 2024 – Sept 2025" data-body="
+              <ul class='exp-list'>
+                <li><i class='uil uil-check-circle'></i> Provided technical support for K-12 ERP systems, ensuring smooth functioning of core modules</li>
+                <li><i class='uil uil-check-circle'></i> Provided L1 and L2 level technical support, troubleshooting issues and escalating as needed. </li>
+                <li><i class='uil uil-check-circle'></i> Supported key modules like Student Information System (SIS), Fee Management,
+                Attendance Management, Academic Management, and Communication & Notifications.</li>
+                <li><i class='uil uil-check-circle'></i> Conducted training sessions for school staff to enhance their understanding of ERP functionalities.</li>
+                <li><i class='uil uil-check-circle'></i> Created documentation and user guides to help schools efficiently use the ERP system</li>
+              </ul>
+            ">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>ERP Coordinator</h3>
+                <div class="timeline__meta">•Edunext Technologies Pvt. Ltd.<br>•Jul 2024 – Sept 2025</div>
+                <button class="timeline__more">
+                  View more <i class="uil uil-arrow-right"></i>
+                </button>
+              </div>
+            </li>
+            <li class="timeline__item" data-title="Consultant - Technical Support (A2) " data-sub="• Bluekaktus Pvt. Ltd."
+              data-duration="Currently Working" data-body="<p>Work in progress...</p>">
+              <span class="timeline__dot"></span>
+              <div class="timeline__content">
+                <h3>Consultant - Technical Support (A2) </h3>
+                <div class="timeline__meta">•Bluekaktus Pvt. Ltd.<br>•Sept 2025 – Currently Working</div><button
+                  class="timeline__more">View
+                  more <i class="uil uil-arrow-right"></i></button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- Projects -->
+    <section class="section container" id="portfolio">
+      <div class="section__head">
+        <h2 class="section__title">Projects</h2><span class="section__subtitle">Most recent work</span>
+      </div>
+      <div class="card">
+        <p class="muted" style="text-align:center;">Coming Soon...</p>
+      </div>
+    </section>
 
+    <!-- Contact -->
+    <section class="section container" id="contact">
+      <div class="section__head">
+        <h2 class="section__title">Contact Me</h2><span class="section__subtitle">Get in touch</span>
+      </div>
+      <div class="card contact">
+        <div class="contact__info">
+          <h3 class="contact__title">Talk to me</h3>
+          <ul class="contact__list">
+            <li><i class="uil uil-envelope accent"></i>
+              <div><span class="small muted">Email</span>
+                <div>shubham347779@gmail.com</div>
+              </div>
+            </li>
+            <li><i class="uil uil-whatsapp accent"></i>
+              <div><span class="small muted">WhatsApp</span>
+                <div>+91 79823 26285</div>
+              </div>
+            </li>
+            <li><i class="uil uil-map-marker accent"></i>
+              <div><span class="small muted">Location</span>
+                <div>Faridabad, Haryana</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <form id="contact-form" class="contact__form">
+          <div class="contact__content"><label for="name">Name</label><input type="text" name="name"
+              class="contact__input" id="name" required></div>
+          <div class="contact__content"><label for="email">Email</label><input type="email" name="email"
+              class="contact__input" id="email" required></div>
+          <div class="contact__content"><label for="message">Message</label><textarea name="message" id="message"
+              cols="0" rows="7" class="contact__input" required></textarea></div>
+          <div class="contact__actions"><button type="submit" class="btn btn--primary">Send Message <i
+                class="uil uil-message"></i></button></div>
+          <p id="contact-message" class="form-status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function (e) {
-            e.preventDefault();
+  <!-- Footer -->
+  <footer class="footer container">
+    <p>&copy; <span id="year"></span> Shubham Das. All rights reserved.</p>
+  </footer>
 
-            emailjs.sendForm("service_3xc1idj", "template_xapvluo", this)
-                .then(function () {
-                    alert("Message sent successfully!");
-                }, function (error) {
-                    console.error("❌ Error: ", error);
-                    alert("Failed to send message. Please try again later.");
-                });
-        });
-    </script>
+  <!-- MODALS -->
+  <div class="modal" id="cvModal" aria-hidden="true">
+    <div class="modal__inner">
+      <h3 class="modal-title">Alert!</h3>
+      <p class="modal-body">
+        🔒 This CV is protected for privacy reasons. <br>
+        👉 Please fill the contact form at the bottom of the page <br>
+        📩 You will receive the CV via email after submission of the form.
+      <div>
+        <center>Thank You ❤️</center>
+      </div>
+      </p>
+      <div class="modal__actions"><button class="btn btn--primary" id="cvModalClose">OK</button></div>
+    </div>
+  </div>
 
+  <div class="modal-overlay" id="eduModal" aria-hidden="true">
+    <div class="modal-content"><button class="modal-close" aria-label="Close modal"><i
+          class="uil uil-times"></i></button>
+      <h3 class="modal-title" id="eduModalTitle"></h3>
+      <div class="modal-meta" id="eduModalMeta"></div>
+      <div class="modal-body" id="eduModalBody"></div>
+      <!-- <hr style="..."> -->
+      <h4 class="small muted" style="margin-bottom: 10px;">Documents / Results:</h4>
+      <div class="modal-images" id="eduModalImages"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="workModal" aria-hidden="true">
+    <div class="modal-content"><button class="modal-close" aria-label="Close modal"><i
+          class="uil uil-times"></i></button>
+      <h3 class="modal-title" id="workModalTitle"></h3>
+      <div class="modal-meta" id="workModalMeta"></div>
+      <div class="modal-body" id="workModalBody"></div>
+    </div>
+  </div>
 
+  <!-- Main JS -->
+  <script src="main.js"></script>
 
-<!-- CV Access Popup -->
-<div id="cvPopup" style="
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border: 2px solid #333;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border-radius: 12px;
-">
-    <p style="font-size: 18px;">🔒 <strong>This CV is protected for privacy reasons.</strong></p>
-    <p>👉 Please fill out the contact form located at the bottom of the portfolio page.</p>
-    <p>📩 You will receive the CV via email after submission.</p>
-    <button onclick="hidePopup()" style="margin-top: 15px; padding: 6px 12px;">Close</button>
-</div>
+  <script>
+    (function () {
+      function smoothScrollTo(el) {
+        if (!el) return;
+        try { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        catch (e) { if (el.id) location.hash = '#' + el.id; }
+      }
 
-<!-- Overlay -->
-<div id="overlay" style="
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-"></div>
+      function closeCvModalAndGo() {
+        var modal = document.getElementById('cvModal');
+        if (modal) {
+          // Close modal (handles both class and aria states)
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          // Fallback hide if any inline style was used
+          if (modal.style && modal.style.display === 'block') modal.style.display = 'none';
+        }
+        // Unlock page scroll if it was locked
+        document.body.classList.remove('modal-open');
+        // Scroll to contact section
+        smoothScrollTo(document.getElementById('contact'));
+      }
 
-<script>
-    function showPopup() {
-        document.getElementById("cvPopup").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
-    }
+      function bindCvOk() {
+        var okBtn = document.getElementById('cvModalClose');
+        if (okBtn && !okBtn.__cvBound) {
+          okBtn.addEventListener('click', closeCvModalAndGo);
+          okBtn.__cvBound = true; // avoid duplicate bindings
+        }
+      }
 
-    function hidePopup() {
-        document.getElementById("cvPopup").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
-    }
-</script>
-
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindCvOk);
+      } else {
+        bindCvOk();
+      }
+    })();
+  </script>
 
 
 </body>
