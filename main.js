@@ -73,7 +73,7 @@ tabs.forEach(tab =>{
             qualSub.innerText = "My Professional Journey"
         } else {
             qualTitle.innerText = "Qualification"
-            qualSub.innerText = "My Personal Journey"
+            qualSub.innerText = "My Educational Journey"
         }
 
         tabs.forEach(t => t.classList.remove('active'))
