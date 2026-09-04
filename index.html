@@ -52,9 +52,10 @@
         <div class="hero__content">
           <h1 class="section__title">Hi, I'm Shubham</h1>
 
-          <!-- UPDATED FOR STATIC PREFIX + TYPING EFFECT -->
+          <!-- Typing designation / role effect -->
           <h3 class="hero__subtitle">
-            <span class="role-prefix">Consultant&nbsp;-&nbsp;</span><span class="typing-text"></span>
+            <span class="typing-text"
+              data-roles="Web Developer|Implementation Consultant|Technical Support Specialist|ERP COORDINATOR|Ed-Tech|SaaS|Delivering Reliable Support and Solutions|MS SQL SERVER|CRM|ERP|Power BI|React|MERN"></span>
           </h3>
 
 
@@ -132,31 +133,31 @@
       <div class="card">
         <div class="skills">
           <div class="skill"><span>MySQL</span>
-            <div class="skill__bar"><span style="width:65%"></span></div><span class="skill__percent">65%</span>
+            <div class="skill__bar"><span style="width:65%"></span></div>
           </div>
           <div class="skill"><span>Google Suite</span>
-            <div class="skill__bar"><span style="width:90%"></span></div><span class="skill__percent">90%</span>
+            <div class="skill__bar"><span style="width:90%"></span></div>
           </div>
           <div class="skill"><span>PowerBI</span>
-            <div class="skill__bar"><span style="width:60%"></span></div><span class="skill__percent">60%</span>
+            <div class="skill__bar"><span style="width:60%"></span></div>
           </div>
           <div class="skill"><span>MS Office</span>
-            <div class="skill__bar"><span style="width:90%"></span></div><span class="skill__percent">90%</span>
+            <div class="skill__bar"><span style="width:90%"></span></div>
           </div>
           <div class="skill"><span>Git & GitHub</span>
-            <div class="skill__bar"><span style="width:60%"></span></div><span class="skill__percent">60%</span>
+            <div class="skill__bar"><span style="width:60%"></span></div>
           </div>
           <div class="skill"><span>CSS</span>
-            <div class="skill__bar"><span style="width:70%"></span></div><span class="skill__percent">70%</span>
+            <div class="skill__bar"><span style="width:70%"></span></div>
           </div>
           <div class="skill"><span>Help Desk Tools</span>
-            <div class="skill__bar"><span style="width:80%"></span></div><span class="skill__percent">80%</span>
+            <div class="skill__bar"><span style="width:80%"></span></div>
           </div>
           <div class="skill"><span>Software Support</span>
-            <div class="skill__bar"><span style="width:95%"></span></div><span class="skill__percent">95%</span>
+            <div class="skill__bar"><span style="width:95%"></span></div>
           </div>
           <div class="skill"><span>Operating Systems <br> (Windows, macOS, <br> Linux systems.)</span>
-            <div class="skill__bar"><span style="width:75%"></span></div><span class="skill__percent">75%</span>
+            <div class="skill__bar"><span style="width:75%"></span></div>
           </div>
         </div>
       </div>
@@ -410,6 +411,92 @@
         document.addEventListener('DOMContentLoaded', bindCvOk);
       } else {
         bindCvOk();
+      }
+    })();
+  </script>
+
+
+  <!-- REQUESTED HERO TYPING EFFECT -->
+  <style>
+    /* Only affects the hero role line; the existing responsive stylesheet remains untouched. */
+    .hero__subtitle .typing-text {
+      display: inline;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .hero__subtitle .typing-text::after {
+      content: "|";
+      display: inline-block;
+      margin-left: 2px;
+      animation: heroTypingCursor 0.8s steps(1, end) infinite;
+    }
+
+    @keyframes heroTypingCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      function initHeroTyping() {
+        var typingElement = document.querySelector('.hero__subtitle .typing-text');
+        if (!typingElement) return;
+
+        var roles = (typingElement.dataset.roles || '')
+          .split('|')
+          .map(function (role) { return role.trim(); })
+          .filter(Boolean);
+
+        if (!roles.length) return;
+
+        /* Prevent duplicate timers if this script is evaluated more than once. */
+        if (typingElement.__heroTypingTimer) {
+          clearTimeout(typingElement.__heroTypingTimer);
+        }
+
+        var roleIndex = 0;
+        var charIndex = 0;
+        var deleting = false;
+
+        function tick() {
+          var role = roles[roleIndex];
+
+          if (!deleting) {
+            charIndex++;
+            typingElement.textContent = role.slice(0, charIndex);
+
+            if (charIndex >= role.length) {
+              deleting = true;
+              typingElement.__heroTypingTimer = setTimeout(tick, 1500);
+              return;
+            }
+
+            typingElement.__heroTypingTimer = setTimeout(tick, 75);
+          } else {
+            charIndex--;
+            typingElement.textContent = role.slice(0, charIndex);
+
+            if (charIndex <= 0) {
+              deleting = false;
+              roleIndex = (roleIndex + 1) % roles.length;
+              typingElement.__heroTypingTimer = setTimeout(tick, 350);
+              return;
+            }
+
+            typingElement.__heroTypingTimer = setTimeout(tick, 40);
+          }
+        }
+
+        typingElement.textContent = '';
+        tick();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroTyping);
+      } else {
+        initHeroTyping();
       }
     })();
   </script>
