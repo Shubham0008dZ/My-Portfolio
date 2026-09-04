@@ -20,31 +20,55 @@
   </script>
 
   <style>
-    /* Requested: clean skills list — no percentage text and no progress bars. */
+    /* Skills: clean, responsive layout without percentage labels, bars, or a large enclosing box. */
+    .skills--clean {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 42px;
+      width: 100%;
+    }
+
     .skills--clean .skill {
       display: flex;
       align-items: center;
-      min-height: 44px;
+      min-height: 52px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: inherit;
     }
 
-    /* Stable typewriter area: one role at a time, consistent timing, no overlap. */
+    .skills--clean .skill::before {
+      content: '▹';
+      margin-right: 10px;
+      color: var(--first-color, #6ee7b7);
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    .skills--clean .skill:last-child {
+      border-bottom: 0;
+    }
+
+    /* Stable typewriter area: one role at a time, identical timing, no overlap. */
     .hero__subtitle {
-      min-height: 2.2em;
+      min-height: 2.7em;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 1rem;
     }
 
     .role-typing-text {
       display: inline-block;
+      width: 100%;
       max-width: 100%;
       white-space: normal;
       overflow-wrap: anywhere;
       word-break: normal;
       line-height: 1.35;
-      vertical-align: middle;
+      vertical-align: top;
       border-right: 2px solid currentColor;
-      padding-right: 4px;
+      padding-right: 5px;
+      box-sizing: border-box;
       animation: typingCursor 0.8s steps(1) infinite;
     }
 
@@ -53,13 +77,37 @@
       50%, 100% { border-color: transparent; }
     }
 
+    /* Keep section headings clear of the fixed header when navigating by anchor. */
+    .section {
+      scroll-margin-top: 90px;
+    }
+
+    @media (max-width: 900px) {
+      .skills--clean {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 28px;
+      }
+    }
+
     @media (max-width: 768px) {
+      .skills--clean {
+        grid-template-columns: 1fr;
+      }
+
       .hero__subtitle {
-        min-height: 2.7em;
+        min-height: 4.05em;
       }
 
       .role-typing-text {
+        width: auto;
         max-width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .role-typing-text {
+        animation: none;
+        border-right: 0;
       }
     }
   </style>
@@ -175,18 +223,16 @@
         <h2 class="section__title">Skills</h2>
         <span class="section__subtitle">My technical level</span>
       </div>
-      <div class="card">
-        <div class="skills skills--clean">
-          <div class="skill"><span>MySQL</span></div>
-          <div class="skill"><span>Google Suite</span></div>
-          <div class="skill"><span>PowerBI</span></div>
-          <div class="skill"><span>MS Office</span></div>
-          <div class="skill"><span>Git &amp; GitHub</span></div>
-          <div class="skill"><span>CSS</span></div>
-          <div class="skill"><span>Help Desk Tools</span></div>
-          <div class="skill"><span>Software Support</span></div>
-          <div class="skill"><span>Operating Systems <br> (Windows, macOS, <br> Linux systems.)</span></div>
-        </div>
+      <div class="skills skills--clean">
+        <div class="skill"><span>MySQL</span></div>
+        <div class="skill"><span>Google Suite</span></div>
+        <div class="skill"><span>PowerBI</span></div>
+        <div class="skill"><span>MS Office</span></div>
+        <div class="skill"><span>Git &amp; GitHub</span></div>
+        <div class="skill"><span>CSS</span></div>
+        <div class="skill"><span>Help Desk Tools</span></div>
+        <div class="skill"><span>Software Support</span></div>
+        <div class="skill"><span>Operating Systems (Windows, macOS, Linux systems.)</span></div>
       </div>
     </section>
 
@@ -426,41 +472,49 @@
       let roleIndex = 0;
       let charIndex = 0;
       let deleting = false;
+      let timer = null;
 
-      const TYPE_SPEED = 85;
+      const TYPE_SPEED = 75;
       const DELETE_SPEED = 45;
-      const HOLD_AFTER_TYPING = 1800;
-      const HOLD_AFTER_DELETING = 450;
+      const HOLD_AFTER_TYPING = 1600;
+      const HOLD_AFTER_DELETING = 500;
 
       function tick() {
-        const currentRole = roles[roleIndex];
+        const role = roles[roleIndex];
 
         if (!deleting) {
-          charIndex++;
-          typingElement.textContent = currentRole.slice(0, charIndex);
+          charIndex += 1;
+          typingElement.textContent = role.slice(0, charIndex);
 
-          if (charIndex < currentRole.length) {
-            setTimeout(tick, TYPE_SPEED);
-          } else {
+          if (charIndex >= role.length) {
             deleting = true;
-            setTimeout(tick, HOLD_AFTER_TYPING);
-          }
-        } else {
-          charIndex--;
-          typingElement.textContent = currentRole.slice(0, charIndex);
-
-          if (charIndex > 0) {
-            setTimeout(tick, DELETE_SPEED);
+            timer = setTimeout(tick, HOLD_AFTER_TYPING);
           } else {
-            deleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            setTimeout(tick, HOLD_AFTER_DELETING);
+            timer = setTimeout(tick, TYPE_SPEED);
           }
+          return;
+        }
+
+        charIndex -= 1;
+        typingElement.textContent = role.slice(0, charIndex);
+
+        if (charIndex <= 0) {
+          charIndex = 0;
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          timer = setTimeout(tick, HOLD_AFTER_DELETING);
+        } else {
+          timer = setTimeout(tick, DELETE_SPEED);
         }
       }
 
+      typingElement.setAttribute('aria-live', 'polite');
       typingElement.textContent = '';
-      setTimeout(tick, 300);
+      timer = setTimeout(tick, 300);
+
+      window.addEventListener('beforeunload', function () {
+        if (timer) clearTimeout(timer);
+      });
     });
   </script>
 
