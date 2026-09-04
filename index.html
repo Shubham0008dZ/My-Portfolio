@@ -15,7 +15,7 @@
   <script type="text/javascript">
     (function () {
       // Your EmailJS Public Key
-      emailjs.init("kBbE_NuFi3OaB4RfE");
+      emailjs.init("Svvb3e-YOvMrXgWLZ");
     })();
   </script>
 
@@ -143,7 +143,7 @@
     <section class="section container" id="home">
       <div class="hero">
         <div class="hero__content">
-          <h1 class="section__title">Hi, I'm Shubham</h1>
+          <h1 class="section__title">Hi, I'm Shubham Das</h1>
 
           <!-- Typing designation / role effect -->
           <h3 class="hero__subtitle">
@@ -408,7 +408,7 @@
               class="contact__input" id="name" required></div>
           <div class="contact__content"><label for="email">Email</label><input type="email" name="email"
               class="contact__input" id="email" required></div>
-          <div class="contact__content"><label for="message">Messageeeeee</label><textarea name="message" id="message"
+          <div class="contact__content"><label for="message">Message</label><textarea name="message" id="message"
               cols="0" rows="7" class="contact__input" required></textarea></div>
           <div class="contact__actions"><button type="submit" class="btn btn--primary">Send Message <i
                 class="uil uil-message"></i></button></div>
@@ -461,6 +461,21 @@
 
   <!-- Main JS -->
   <script src="main.js"></script>
+
+  <!-- EmailJS public-key fix: keeps all existing main.js functionality unchanged. -->
+  <script>
+    (function () {
+      const EMAILJS_PUBLIC_KEY = "Svvb3e-YOvMrXgWLZ";
+
+      if (window.emailjs && typeof window.emailjs.sendForm === "function") {
+        const originalSendForm = window.emailjs.sendForm.bind(window.emailjs);
+
+        window.emailjs.sendForm = function (serviceID, templateID, form, ignoredPublicKey) {
+          return originalSendForm(serviceID, templateID, form, EMAILJS_PUBLIC_KEY);
+        };
+      }
+    })();
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
