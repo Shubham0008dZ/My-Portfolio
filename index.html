@@ -11,13 +11,11 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
   <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
     (function () {
       // Your EmailJS Public Key
-      emailjs.init({
-        publicKey: "kBbE_NuFi3OaB4RfE"
-      });
+      emailjs.init("kBbE_NuFi3OaB4RfE");
     })();
   </script>
 
@@ -410,7 +408,7 @@
               class="contact__input" id="name" required></div>
           <div class="contact__content"><label for="email">Email</label><input type="email" name="email"
               class="contact__input" id="email" required></div>
-          <div class="contact__content"><label for="message">Message</label><textarea name="message" id="message"
+          <div class="contact__content"><label for="message">Messageeeeee</label><textarea name="message" id="message"
               cols="0" rows="7" class="contact__input" required></textarea></div>
           <div class="contact__actions"><button type="submit" class="btn btn--primary">Send Message <i
                 class="uil uil-message"></i></button></div>
@@ -464,46 +462,6 @@
   <!-- Main JS -->
   <script src="main.js"></script>
 
-  <!-- EmailJS contact-form fix: handles the form before the legacy listener in main.js. -->
-  <script>
-    (function () {
-      const contactForm = document.getElementById('contact-form');
-      const contactMessage = document.getElementById('contact-message');
-
-      if (!contactForm || !contactMessage || typeof emailjs === 'undefined') return;
-
-      contactForm.addEventListener('submit', function (event) {
-        // Stop the older main.js submit listener from firing as well.
-        event.preventDefault();
-        event.stopImmediatePropagation();
-
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        if (submitButton) submitButton.disabled = true;
-
-        contactMessage.textContent = 'Sending message...';
-
-        emailjs.sendForm(
-          'service_3xc1idj',
-          'template_xapvluo',
-          contactForm
-        ).then(
-          function () {
-            contactMessage.textContent = 'Message sent successfully ✅';
-            contactForm.reset();
-            setTimeout(function () {
-              contactMessage.textContent = '';
-            }, 5000);
-          },
-          function (error) {
-            console.error('EmailJS error:', error);
-            contactMessage.textContent = 'Message not sent (service error) ❌';
-          }
-        ).finally(function () {
-          if (submitButton) submitButton.disabled = false;
-        });
-      }, true);
-    })();
-  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const typingElement = document.querySelector('.role-typing-text');
