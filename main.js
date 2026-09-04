@@ -165,40 +165,63 @@ const contactForm = document.getElementById('contact-form'),
 
 const sendEmail = (e) => {
     e.preventDefault()
-    emailjs.sendForm('service_3xc1idj', 'template_xapvluo', '#contact-form', 'kBbE_NuFi3OaB4RfE')
+
+    emailjs.sendForm(
+        'service_3xc1idj',
+        'template_xapvluo',
+        '#contact-form',
+        'Svvb3e-YOvMrXgWLZ'
+    )
         .then(() => {
             contactMessage.textContent = 'Message sent successfully ✅'
-            setTimeout(() => { contactMessage.textContent = '' }, 5000)
+            setTimeout(() => {
+                contactMessage.textContent = ''
+            }, 5000)
             contactForm.reset()
         }, () => {
             contactMessage.textContent = 'Message not sent (service error) ❌'
         })
 }
+
 contactForm.addEventListener('submit', sendEmail)
 
 
 // ================= FOOTER YEAR & SCROLL ACTIVE LINK =================
 document.getElementById('year').innerText = new Date().getFullYear()
+
 const sections = document.querySelectorAll('section[id]')
+
 function scrollActive(){
     const scrollY = window.pageYOffset
+
     sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight, sectionTop = current.offsetTop - 58, sectionId = current.getAttribute('id')
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 58
+        const sectionId = current.getAttribute('id')
         const navLink = document.querySelector('.nav a[href*=' + sectionId + ']')
+
         if(navLink) {
-             if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){ navLink.classList.add('active-link') }
-             else { navLink.classList.remove('active-link') }
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                navLink.classList.add('active-link')
+            } else {
+                navLink.classList.remove('active-link')
+            }
         }
     })
 }
+
 window.addEventListener('scroll', scrollActive)
+
 
 // ================= SERVICE CARD TOGGLE (Show/Hide) =================
 const serviceBtns = document.querySelectorAll('.service-card__toggle')
+
 serviceBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-        const body = btn.nextElementSibling;
-        body.classList.toggle('show');
+        const body = btn.nextElementSibling
+
+        body.classList.toggle('show')
+
         if(body.classList.contains('show')){
             btn.innerHTML = 'View Less <i class="uil uil-angle-up"></i>'
         } else {
@@ -207,39 +230,67 @@ serviceBtns.forEach((btn) => {
     })
 })
 
+
 // ================= UPDATED TYPING ANIMATION =================
 document.addEventListener('DOMContentLoaded', function() {
-    const typingTextElement = document.querySelector('.typing-text');
-    if (!typingTextElement) return;
 
-    // "Consultant - " static hai, ye words uske aage type honge
-    const words = ["Technical Support (A2) ", "Implementation ", "Maintenance "];
-    
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    const typingTextElement = document.querySelector('.role-typing-text, .typing-text')
+
+    if (!typingTextElement) return
+
+    const roles = typingTextElement.dataset.roles
+        ? typingTextElement.dataset.roles.split('|').filter(Boolean)
+        : [
+            "Technical Support (A2)",
+            "Implementation",
+            "Maintenance"
+        ]
+
+    let roleIndex = 0
+    let charIndex = 0
+    let isDeleting = false
 
     function type() {
-        const currentWord = words[wordIndex];
-        const displayedText = isDeleting 
-            ? currentWord.substring(0, charIndex--) 
-            : currentWord.substring(0, charIndex++);
 
-        typingTextElement.textContent = displayedText;
+        const currentRole = roles[roleIndex]
 
-        // FASTER typing speed
-        let typeSpeed = isDeleting ? 50 : 100;
+        if (!isDeleting) {
 
-        if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 2000;
-            isDeleting = true;
-        } 
-        else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            typeSpeed = 300;
+            typingTextElement.textContent =
+                currentRole.substring(0, charIndex + 1)
+
+            charIndex++
+
+            if (charIndex === currentRole.length) {
+                isDeleting = true
+
+                setTimeout(type, 1600)
+                return
+            }
+
+            setTimeout(type, 75)
+            return
         }
-        setTimeout(type, typeSpeed);
+
+        typingTextElement.textContent =
+            currentRole.substring(0, charIndex - 1)
+
+        charIndex--
+
+        if (charIndex === 0) {
+
+            isDeleting = false
+            roleIndex = (roleIndex + 1) % roles.length
+
+            setTimeout(type, 500)
+            return
+        }
+
+        setTimeout(type, 45)
     }
-    type(); 
-});
+
+    typingTextElement.setAttribute('aria-live', 'polite')
+    typingTextElement.textContent = ''
+
+    setTimeout(type, 300)
+})
