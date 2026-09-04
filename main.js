@@ -160,6 +160,7 @@ document.getElementById('heroContactBtn').addEventListener('click', () => {
 
 
 // ================= CONTACT FORM =================
+// ================= CONTACT FORM =================
 const contactForm = document.getElementById('contact-form'),
       contactMessage = document.getElementById('contact-message')
 
@@ -169,21 +170,26 @@ const sendEmail = (e) => {
     emailjs.sendForm(
         'service_3xc1idj',
         'template_xapvluo',
-        '#contact-form',
-        'Svvb3e-YOvMrXgWLZ'
+        contactForm
     )
-        .then(() => {
-            contactMessage.textContent = 'Message sent successfully ✅'
-            setTimeout(() => {
-                contactMessage.textContent = ''
-            }, 5000)
-            contactForm.reset()
-        }, () => {
-            contactMessage.textContent = 'Message not sent (service error) ❌'
-        })
+    .then(() => {
+        contactMessage.textContent = 'Message sent successfully ✅'
+
+        setTimeout(() => {
+            contactMessage.textContent = ''
+        }, 5000)
+
+        contactForm.reset()
+    })
+    .catch((error) => {
+        console.error('EmailJS error:', error)
+        contactMessage.textContent = 'Message not sent (service error) ❌'
+    })
 }
 
-contactForm.addEventListener('submit', sendEmail)
+if (contactForm) {
+    contactForm.addEventListener('submit', sendEmail)
+}
 
 
 // ================= FOOTER YEAR & SCROLL ACTIVE LINK =================
